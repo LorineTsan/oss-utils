@@ -18,12 +18,7 @@ class Qiniu implements ICloud
         $auth = new Auth($config['ak'],$config['sk']);
         $token = $auth->uploadToken($bucket);
         $uploadMgr = new UploadManager();
-        try {
-            $uploadMgr->putFile($token,$fileName,$filePath);
-        }catch (\Exception $e){
-            return false;
-        }
-        return true;
-
+        $res = $uploadMgr->putFile($token,$fileName,$filePath);
+        return $res;
     }
 }
