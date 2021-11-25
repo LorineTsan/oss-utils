@@ -2,19 +2,20 @@
 
 namespace Lorine\OssUtils\Upload\Qiniu;
 
-use App\Http\Oss\Upload\ICloud;
+
+use Lorine\OssUtils\Upload\ICloud;
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
 
 class Qiniu implements ICloud
 {
 
-    public function uploadFile($file,$fileName)
+    public function uploadFile($config,$file,$fileName)
     {
         // TODO: Implement uploadFile() method.
         $filePath = $file->getPathname();
-        $bucket = config('oss.qiniu.bucket');
-        $auth = new Auth(config('oss.qiniu.ak'),config('oss.qiniu.sk'));
+        $bucket = $config['bucket'];
+        $auth = new Auth($config['ak'],$config['sk']);
         $token = $auth->uploadToken($bucket);
         $uploadMgr = new UploadManager();
         try {

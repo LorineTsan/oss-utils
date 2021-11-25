@@ -4,6 +4,6 @@ namespace Lorine\OssUtils\Upload;
 
 interface ICloud
 {
-    public function uploadFile($file,$fileName);
+    public function uploadFile($config,$file,$fileName);
 
 }
