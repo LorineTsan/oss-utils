@@ -9,7 +9,7 @@ use Qcloud\Cos\Client;
 
 class Tencent implements ICloud
 {
-    public function uploadFile($config, $file, $fileName)
+    public function uploadFile($config, $tmpName, $fileName)
     {
         // TODO: Implement uploadFile() method.
         $cosClient = new Client(
@@ -22,7 +22,7 @@ class Tencent implements ICloud
         $res = $cosClient->Upload(
                 $bucket = $config['bucket'],
                 $key = $fileName,
-                $body = fopen($file, 'rb'));
+                $body = fopen($tmpName, 'rb'));
 
         return $res;
     }

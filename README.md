@@ -25,9 +25,9 @@ use Lorine\OssUtils\OssService;
     try {
             //云存储类型 腾讯云：Tencent  七牛云：Qiniu
             $obj = (new OssService())->getOssService('Tencent');
-            //$file为带有文件临时路径、大小及文件名的数组
+            //$tmpName绝对路径
             //$fileName自定义云储存的文件名称
-            $res = $obj->uploadFile($config,$file,$fileName);
+            $res = $obj->uploadFile($config,$tmpName,$fileName);
             dd($res);
         }catch (Exception $exception){
             dd($exception->getMessage());

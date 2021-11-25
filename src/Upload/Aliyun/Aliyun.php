@@ -8,7 +8,7 @@ use Lorine\OssUtils\Upload\ICloud;
 
 class Aliyun implements ICloud
 {
-    public function uploadFile($config,$file,$fileName)
+    public function uploadFile($config,$tmpName,$fileName)
     {
         // TODO: Implement uploadFile() method.
     }

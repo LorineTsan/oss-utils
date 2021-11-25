@@ -10,15 +10,14 @@ use Qiniu\Storage\UploadManager;
 class Qiniu implements ICloud
 {
 
-    public function uploadFile($config,$file,$fileName)
+    public function uploadFile($config,$tmpName,$fileName)
     {
         // TODO: Implement uploadFile() method.
-        $filePath = $file->getPathname();
         $bucket = $config['bucket'];
         $auth = new Auth($config['ak'],$config['sk']);
         $token = $auth->uploadToken($bucket);
         $uploadMgr = new UploadManager();
-        $res = $uploadMgr->putFile($token,$fileName,$filePath);
+        $res = $uploadMgr->putFile($token,$fileName,$tmpName);
         return $res;
     }
 }
