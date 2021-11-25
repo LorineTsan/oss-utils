@@ -1,6 +1,5 @@
 # 简介（oss-tools）
-
-一个集腾讯云、七牛云对象存储的工具类
+腾讯云、七牛云对象存储的工具类
 
 An SDK integrating Tencent cloud and qiniu cloud object storage
 
@@ -34,9 +33,3 @@ use Lorine\OssUtils\OssService;
             dd($exception->getMessage());
         }
 ```
-
-## 报错参考（Error reporting）
-
-CURL传报错：cURL error 60: SSL certificate problem: self signed certificate in certificate chain
-
-https://jingyan.baidu.com/article/14bd256e1fd7dffb6c26122b.html
